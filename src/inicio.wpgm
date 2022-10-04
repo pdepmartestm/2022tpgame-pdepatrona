@@ -1,0 +1,56 @@
+import wollok.game.*
+import Sheldon.*
+import peces.*
+
+program sheldonEats {
+	
+	// Configuración 
+	
+	game.title("Sheldon Eats")
+	game.width(12)
+  	game.height(6)
+  	game.cellSize(120)
+  	game.boardGround("fondo.png")
+  	
+  	// Visuales
+  	
+  	game.addVisual(sheldon)
+  	game.addVisual(pez10R)
+  	game.addVisual(pez10A)
+  	game.addVisual(pez10V)
+  	game.addVisual(pez10R1)
+  	game.addVisual(pez10A1)
+  	game.addVisual(pez10V1)
+  	game.addVisual(pez15A)
+  	game.addVisual(pez15C)
+  	game.addVisual(pez15N)
+  	game.addVisual(pez15A1)
+  	game.addVisual(pez20A)
+  	game.addVisual(pez20N)
+  	game.addVisual(pez20V)
+  	game.addVisual(pez30)
+  	game.addVisual(pez301)
+  	game.addVisual(pez302)
+  	game.addVisual(pez303)
+  	game.addVisual(pulpo)
+  	game.addVisual(pulpo1)
+  	game.addVisual(pulpo2)
+  	game.addVisual(medusa)
+  	game.addVisual(medusa1)
+  	game.addVisual(medusa2)
+  	game.addVisual(medusa3)
+  	game.addVisual(globoC)
+  	game.addVisual(globoM)
+  	game.addVisual(globoV)
+  	game.addVisual(globoC1)
+  	game.addVisual(abisal)
+  	game.addVisual(tiburon)
+  	game.addVisual(tiburon1)
+  	game.addVisual(tiburon2)  	
+  	
+
+	// Inicio
+
+	game.start()  
+  
+}
