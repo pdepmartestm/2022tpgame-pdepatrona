@@ -1,0 +1,10 @@
+import wollok.game.*
+import nivel.*
+
+program sheldonEats {
+	
+	
+	nivel.inicio()
+	game.start()
+	
+}
