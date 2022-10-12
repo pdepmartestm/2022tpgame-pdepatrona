@@ -35,8 +35,8 @@ object movimiento {
 	method configurarFlechas(visual){
 		keyboard.up().onPressDo{ self.mover(arriba,visual)}
 		keyboard.down().onPressDo{ self.mover(abajo,visual)}
-		keyboard.left().onPressDo{ self.mover(izquierda,visual)}
-		keyboard.right().onPressDo{ self.mover(derecha,visual)}
+		keyboard.left().onPressDo{ self.mover(izquierda,visual) sheldon.image("sheldonTrosco.png")}
+		keyboard.right().onPressDo{ self.mover(derecha,visual) sheldon.image("sheldon.png")}
    }
 	
 	method mover(direccion,personaje){

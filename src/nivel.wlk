@@ -15,7 +15,6 @@ object nivel {
 		game.width(12)
 	  	game.height(6)
 	  	game.cellSize(120)
-	  	//game.boardGround("fondo.png")
 	  	game.addVisual(inicioDelJuego)
 	  	keyboard.s().onPressDo{self.configurate()}
 	  	
@@ -23,6 +22,7 @@ object nivel {
 	
 	method configurate() {
 		game.clear()
+		game.title("Sheldon Eats")
  		game.addVisual(fondo)
  		
   		//Visuales	
@@ -31,7 +31,7 @@ object nivel {
 		movimiento.configurarFlechas(sheldon)
 		
 		new MarcoSolido(
-				verticeInicial= new Position(x=0,y=0),
+				verticeInicial= game.origin(),
 				verticeFinal = new Position(x=anchoTablero, y=altoTablero),
 				image = "burbuja.png").dibujar()	    
 
@@ -44,11 +44,11 @@ object nivel {
 		
 		//Colisiones		
 		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarScoreTotal()})
-		game.whenCollideDo(tiburon, {elemento => elemento.colisionadoPor(tiburon) win.actualizarScoreTotal()})
+		game.whenCollideDo(tiburon, {elemento => elemento.colisionadoPor(tiburon)})
 		
 		
 		
-		[globo,pez10,pez15,pez20].forEach { pez =>  
+		[globo,pez10,pez15,pez20,pez30].forEach { pez =>  
 			game.addVisual(pez)
 			self.ubicarAleatoriamente(pez) 
 		}
@@ -66,27 +66,29 @@ object nivel {
 		
 	
 	
-	/*
+	
 	method hasGanado(){
 		game.clear()
-		game.width(anchoTotal)
-		game.height(altoTotal)
-		game.addVisual(winVisual)
-		game.addVisual(empleadoDelMes)
-
-		keyboard.p().onPressDo{self.inicio()}
-		keyboard.f().onPressDo{game.stop()}
+		game.width(12)
+		game.height(6)
+		game.addVisual(ganaste)
+		sheldon.puntos(0)
+		
+		keyboard.r().onPressDo{self.configurate()}
 	}
 	
 	method gameOver(){
 		game.clear()
-		game.title("Bob Esponja y las Kangreburgers")
-		game.width(anchoTotal)
-		game.height(altoTotal)
-        game.addVisual(gameOver)
-		keyboard.p().onPressDo{self.inicio()}
-		keyboard.f().onPressDo{game.stop()}
+		game.width(12)
+		game.height(6)
+        game.addVisual(perdiste)
+        
+        sheldon.puntos(0)
+        nivel.ubicarAleatoriamente(tiburon) //muevo el tiburon de lugar porque sino aparezco en la misma posicion y pierdo inmediatamente
+        
+        
+		keyboard.r().onPressDo{self.configurate()}
 		
 	}
-	 */
+	 
 }
