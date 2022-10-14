@@ -16,7 +16,7 @@ object sheldon inherits Visual(image = "sheldon.png",position = new Position(x=1
 
 	method comer(pez){
 		self.sumaPuntos(pez.puntos())
-		game.say(self, "Tengo " + self.puntos() + " puntos!!")
+		game.say(self, "Tengo " + self.puntos() + " puntos!!")		
 	}
 }
 
@@ -40,5 +40,4 @@ object win{
 			nivel.hasGanado()
 		}
 	}
-
 }

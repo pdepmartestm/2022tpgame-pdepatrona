@@ -17,18 +17,13 @@ object nivel {
 	  	game.cellSize(120)
 	  	game.addVisual(inicioDelJuego)
 	  		  	
-	  	keyboard.s().onPressDo{self.configurate()
-	  		
-	  		
+	  	keyboard.s().onPressDo{self.configurate()	
 	  	}
-	  	
 	}
 	
 	method configurate() {
 		game.clear()
  		game.addVisual(fondo)
- 		
-		
 		
   		//Visuales	
 		game.addVisual(sheldon)
@@ -43,7 +38,7 @@ object nivel {
 		game.addVisual(abisal)
 		game.addVisual(medusa)
 		game.addVisual(tiburon)
-		game.onTick(300, "nadar", {tiburon.nadar(sheldon.position())})
+		game.onTick(300, "nadar", {tiburon.nadar(sheldon.position())}) //el tiburon persigue a sheldon
 		
 		//Colisiones		
 		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarPuntos()})

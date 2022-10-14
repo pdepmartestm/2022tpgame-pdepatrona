@@ -55,7 +55,7 @@ object medusa inherits Visual(image= "medusa.png", position = new Position(x=5,y
 }
 
 object tiburon inherits Visual(image= "tiburon.png", position = new Position(x=9,y=1)) {
-	const property puntos = 0 // para respetar polimorfismo???? o no es necesario?
+
 	method nadar(destino) {
 		position = game.at(
 			position.x()+(destino.x()-position.x())/4,
