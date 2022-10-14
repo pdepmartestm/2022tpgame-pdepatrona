@@ -28,8 +28,6 @@ object nivel {
 		game.clear()
  		game.addVisual(fondo)
  		
- 		
-		game.sound("fondo.mp3").play()
 		
 		
   		//Visuales	

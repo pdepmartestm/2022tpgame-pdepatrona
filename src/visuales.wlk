@@ -11,7 +11,7 @@ class Visual {
 object sheldon inherits Visual(image = "sheldon.png",position = new Position(x=1,y=1)){
 	
 	var property puntos = 0
-
+		
 	method sumaPuntos(cantidad) { puntos += cantidad }
 
 	method comer(pez){
@@ -19,8 +19,6 @@ object sheldon inherits Visual(image = "sheldon.png",position = new Position(x=1
 		game.say(self, "Tengo " + self.puntos() + " puntos!!")
 	}
 }
-
-
 
 const inicioDelJuego = new Visual( image =  "pantallaInicio.png", position = game.origin())
 const ganaste = new Visual( image = "pantallaGanaste.png", position = game.origin())
