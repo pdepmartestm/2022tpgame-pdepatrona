@@ -16,7 +16,11 @@ object nivel {
 	  	game.height(6)
 	  	game.cellSize(120)
 	  	game.addVisual(inicioDelJuego)
-	  	keyboard.s().onPressDo{self.configurate()}
+	  		  	
+	  	keyboard.s().onPressDo{self.configurate()
+	  		
+	  		
+	  	}
 	  	
 	}
 	
@@ -24,6 +28,10 @@ object nivel {
 		game.clear()
  		game.addVisual(fondo)
  		
+ 		
+		game.sound("fondo.mp3").play()
+		
+		
   		//Visuales	
 		game.addVisual(sheldon)
 		movimiento.configurarFlechas(sheldon)
@@ -41,7 +49,6 @@ object nivel {
 		
 		//Colisiones		
 		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarPuntos()})
-		game.whenCollideDo(tiburon, {elemento => elemento.colisionadoPor(tiburon)})
 		
 		[globo,pez10,pez15,pez20,pez30].forEach { pez =>  
 			game.addVisual(pez)

@@ -20,28 +20,19 @@ object sheldon inherits Visual(image = "sheldon.png",position = new Position(x=1
 	}
 }
 
+
+
 const inicioDelJuego = new Visual( image =  "pantallaInicio.png", position = game.origin())
 const ganaste = new Visual( image = "pantallaGanaste.png", position = game.origin())
 const perdiste = new Visual(image = "pantallaGameOver.png", position = game.origin())
+const fondo = new Visual(image = "fondo.png", position = game.origin()) 
+const pantallaOscura = new Visual(image = "pantallaOscura.png", position = game.origin()) 
 
-/*
-object fondo inherits Visual( image = "fondo.png", position = game.origin()) {
- }
-*/
-object fondo { //CUAL DE LAS DOS FORMAS ES MEJOR? HEREDO VISUAL? SI HEREDO DESPUES NO TENGO METODOS, NO QUEDA RARO?
-	var property position = game.origin()
-	method image() = "fondo.png"
-}
-
-object pantallaOscura inherits Visual(image = "pantallaOscura.png", position = game.origin()) {
-	
-}
 
 object tinta inherits Visual(image = "tinta.png", position = new Position(x=3,y=3)) {
 	
 	method colisionadoPor(visual){
 		 nivel.ubicarAleatoriamente(self)
-		 game.addVisual(self) 		 	//COMO HAGO PARA QUE APAREZCAN MUCHAS TINTAS?	
 	}
 }
 

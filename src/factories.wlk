@@ -30,8 +30,6 @@ class MarcoSolido {
 	method dibujarLineaHorizontal(fila,columnaDesde,columnaHasta,direccion){
 		(columnaDesde..columnaHasta).forEach{columna=>self.dibujarElemento(columna,fila,direccion)}
 	}
-	
-
 }
 
 /*CONFIGURACION DE TECLADO*/
@@ -48,15 +46,12 @@ object movimiento {
 		personaje.position(direccion.siguiente(personaje.position()))
 	}	
 	
-/*	method configurarFlechasElectrocutado(visual){
-		 SE PUEDE RESOLVER MAS FACIL PONIENDO UNA VARIABLE GLOBAL LLAMADA DIRECCIONAMIENTO. CUANDO VALE 1 LAS FLECHAS VAN EN SENTIDO.
-		 * ESTA FUNCION SOLO DEBERIA CAMBIAR EL VALOR POR -1 EN LOS OBJECT DERECHA IZQUIERDA, ARRIBA, ABAJO
-		
+	method configurarFlechasElectrocutado(visual){
 		keyboard.up().onPressDo{ self.mover(abajo,visual)}
 		keyboard.down().onPressDo{ self.mover(arriba,visual)}
 		keyboard.left().onPressDo{ self.mover(derecha,visual)}
 		keyboard.right().onPressDo{ self.mover(izquierda,visual)}
-   } */
+   } 
 	
 }
 
