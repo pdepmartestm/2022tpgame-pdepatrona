@@ -22,12 +22,10 @@ object nivel {
 	
 	method configurate() {
 		game.clear()
-		game.title("Sheldon Eats")
  		game.addVisual(fondo)
  		
   		//Visuales	
 		game.addVisual(sheldon)
-		
 		movimiento.configurarFlechas(sheldon)
 		
 		new MarcoSolido(
@@ -39,21 +37,16 @@ object nivel {
 		game.addVisual(abisal)
 		game.addVisual(medusa)
 		game.addVisual(tiburon)
-		game.onTick(300, "nadar", {tiburon.nadar()})
-		
+		game.onTick(300, "nadar", {tiburon.nadar(sheldon.position())})
 		
 		//Colisiones		
-		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarScoreTotal()})
+		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarPuntos()})
 		game.whenCollideDo(tiburon, {elemento => elemento.colisionadoPor(tiburon)})
-		
-		
 		
 		[globo,pez10,pez15,pez20,pez30].forEach { pez =>  
 			game.addVisual(pez)
-			self.ubicarAleatoriamente(pez) 
-		}
-		//score.dibujar()
-		}
+			self.ubicarAleatoriamente(pez)}
+	}
 		
 	method ubicarAleatoriamente(visual){
 		var posicion = new Position (x=1.randomUpTo(anchoTablero),y=1.randomUpTo(altoTablero))
@@ -64,14 +57,12 @@ object nivel {
 			
 		}
 		
-	
-	
-	
 	method hasGanado(){
 		game.clear()
 		game.width(12)
 		game.height(6)
 		game.addVisual(ganaste)
+		
 		sheldon.puntos(0)
 		
 		keyboard.r().onPressDo{self.configurate()}
@@ -86,9 +77,7 @@ object nivel {
         sheldon.puntos(0)
         nivel.ubicarAleatoriamente(tiburon) //muevo el tiburon de lugar porque sino aparezco en la misma posicion y pierdo inmediatamente
         
-        
 		keyboard.r().onPressDo{self.configurate()}
-		
 	}
 	 
 }

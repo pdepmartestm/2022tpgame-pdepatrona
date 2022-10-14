@@ -2,7 +2,8 @@ import wollok.game.*
 import visuales.*
 import factories.*
 import nivel.*
-//import score.*
+
+
 
 class Peces inherits Visual{
 	var property puntos
@@ -30,27 +31,15 @@ object pulpo inherits Visual(image= "pulpo.png", position = new Position(x=3,y=2
 	}
 }
 
-object tinta inherits Visual(image = "tinta.png", position = new Position(x=3,y=3)) {
-	
-	method colisionadoPor(visual){
-		 nivel.ubicarAleatoriamente(self)
-		 game.addVisual(self) 		 	//COMO HAGO PARA QUE APAREZCAN MUCHAS TINTAS?	
-		 
-	}
-}
-
 object abisal inherits Visual(image= "abisal.png", position = new Position(x=2,y=2)) { //COMO HAGO PARA QUE LA PRIMERA POSICION SEA AL AZAR???
 	var property puntos = -35
 	method colisionadoPor(personaje) { 
 		game.addVisual(pantallaOscura)
 		game.sound("cortasteTodaLaLoz.mp3").play()
+		
 		nivel.ubicarAleatoriamente(self)
 		game.schedule(4000, { game.removeVisual(pantallaOscura) })
 	}
-}
-
-object pantallaOscura inherits Visual(image = "pantallaOscura.png", position = game.origin()) {
-	
 }
 
 object medusa inherits Visual(image= "medusa.png", position = new Position(x=5,y=3)) {
@@ -59,18 +48,21 @@ object medusa inherits Visual(image= "medusa.png", position = new Position(x=5,y
 	method colisionadoPor(personaje) { 
 		sheldon.image("sheldonSacaLaManoDeAhiCarajo.png") //https://www.youtube.com/watch?v=6UlasOF_ee0 
 		game.sound("sacaLaManoDeAhi.mp3").play()
-		movimiento.configurarFlechasElectrocutado(sheldon)
+		
+		//movimiento.configurarFlechasElectrocutado(sheldon)
 		nivel.ubicarAleatoriamente(self)
-		game.schedule(3000, {movimiento.configurarFlechas(sheldon) sheldon.image("sheldon.png") })
+		game.schedule(3000, { sheldon.image("sheldon.png") })
 	}
 }
 
 object tiburon inherits Visual(image= "tiburon.png", position = new Position(x=9,y=1)) {
-	
-	method nadar() {
-		position = position.left(1)
+	var property puntos = 0 // para respetar polimorfismo???? o no es necesario?
+	method nadar(destino) {
+		position = game.at(
+			position.x()+(destino.x()-position.x())/4,
+			position.y()+(destino.y()-position.y())/4
+		)
 	}
-	
 	method comer(pez){
 		game.say(self, "ATRODEN!")
 		

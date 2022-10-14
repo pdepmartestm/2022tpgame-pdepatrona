@@ -1,5 +1,8 @@
 import visuales.*
+import elementos.*
 import wollok.game.*
+
+ 
 
 class MarcoSolido {
 	const verticeInicial
@@ -30,12 +33,14 @@ class MarcoSolido {
 	
 
 }
+
+/*CONFIGURACION DE TECLADO*/
 object movimiento {
 	
 	method configurarFlechas(visual){
 		keyboard.up().onPressDo{ self.mover(arriba,visual)}
 		keyboard.down().onPressDo{ self.mover(abajo,visual)}
-		keyboard.left().onPressDo{ self.mover(izquierda,visual) sheldon.image("sheldonTrosco.png")}
+		keyboard.left().onPressDo{ self.mover(izquierda,visual) sheldon.image("sheldonTrosco.png")} //Sheldon que mira a la izquierda
 		keyboard.right().onPressDo{ self.mover(derecha,visual) sheldon.image("sheldon.png")}
    }
 	
@@ -43,15 +48,15 @@ object movimiento {
 		personaje.position(direccion.siguiente(personaje.position()))
 	}	
 	
-	method configurarFlechasElectrocutado(visual){
-		/* SE PUEDE RESOLVER MAS FACIL PONIENDO UNA VARIABLE GLOBAL LLAMADA DIRECCIONAMIENTO. CUANDO VALE 1 LAS FLECHAS VAN EN SENTIDO.
+/*	method configurarFlechasElectrocutado(visual){
+		 SE PUEDE RESOLVER MAS FACIL PONIENDO UNA VARIABLE GLOBAL LLAMADA DIRECCIONAMIENTO. CUANDO VALE 1 LAS FLECHAS VAN EN SENTIDO.
 		 * ESTA FUNCION SOLO DEBERIA CAMBIAR EL VALOR POR -1 EN LOS OBJECT DERECHA IZQUIERDA, ARRIBA, ABAJO
-		 */
+		
 		keyboard.up().onPressDo{ self.mover(abajo,visual)}
 		keyboard.down().onPressDo{ self.mover(arriba,visual)}
 		keyboard.left().onPressDo{ self.mover(derecha,visual)}
 		keyboard.right().onPressDo{ self.mover(izquierda,visual)}
-   }
+   } */
 	
 }
 
@@ -64,10 +69,10 @@ class VisualSolido inherits Visual{
 	}
 }		
 		
-
+//direcciones
 object izquierda { 
 	method siguiente(position) = position.left(1) 
-	method opuesto() = derecha
+	method opuesto() = derecha 
 }
 
 object derecha { 
