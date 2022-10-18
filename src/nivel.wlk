@@ -2,7 +2,6 @@ import wollok.game.*
 import visuales.*
 import factories.*
 import elementos.*
-import score.*
 
 object nivel {
 	
