@@ -34,18 +34,15 @@ object nivel {
 				verticeFinal = new Position(x=anchoTablero, y=altoTablero),
 				image = "burbuja.png").dibujar()	    
 
-		game.addVisual(pulpo)
-		game.addVisual(abisal)
-		game.addVisual(medusa)
 		game.addVisual(tiburon)
 		game.onTick(300, "nadar", {tiburon.nadar(sheldon.position())}) //el tiburon persigue a sheldon
 		
 		//Colisiones		
 		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarPuntos()})
 		
-		[globo,pez10,pez15,pez20,pez30].forEach { pez =>  
-			game.addVisual(pez)
-			self.ubicarAleatoriamente(pez)}
+		[globo,pez10,pez15,pez20,pez30, pulpo, abisal, medusa].forEach { x =>  
+			game.addVisual(x)
+			self.ubicarAleatoriamente(x)}
 	}
 		
 	method ubicarAleatoriamente(visual){
@@ -64,7 +61,7 @@ object nivel {
 		game.addVisual(ganaste)
 		
 		sheldon.puntos(0)
-		
+		movimiento.estado(normal)
 		keyboard.r().onPressDo{self.configurate()}
 	}
 	
@@ -75,6 +72,7 @@ object nivel {
         game.addVisual(perdiste)
         
         sheldon.puntos(0)
+        movimiento.estado(normal)
         nivel.ubicarAleatoriamente(tiburon) //muevo el tiburon de lugar porque sino aparezco en la misma posicion y pierdo inmediatamente
         
 		keyboard.r().onPressDo{self.configurate()}

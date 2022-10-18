@@ -34,25 +34,24 @@ class MarcoSolido {
 
 /*CONFIGURACION DE TECLADO*/
 object movimiento {
-	
+	var property estado = normal
 	method configurarFlechas(visual){
-		keyboard.up().onPressDo{ self.mover(arriba,visual)}
-		keyboard.down().onPressDo{ self.mover(abajo,visual)}
-		keyboard.left().onPressDo{ self.mover(izquierda,visual) sheldon.image("sheldonTrosco.png")} //Sheldon que mira a la izquierda
-		keyboard.right().onPressDo{ self.mover(derecha,visual) sheldon.image("sheldon.png")}
+		keyboard.up().onPressDo{ estado.mover(arriba,visual)}
+		keyboard.down().onPressDo{ estado.mover(abajo,visual)}
+		keyboard.left().onPressDo{ estado.mover(izquierda,visual) sheldon.image("sheldonTrosco.png")} //Sheldon que mira a la izquierda
+		keyboard.right().onPressDo{ estado.mover(derecha,visual) sheldon.image("sheldon.png")}
    }
-	
+}
+
+object normal{	
 	method mover(direccion,personaje){
 		personaje.position(direccion.siguiente(personaje.position()))
-	}	
-	
-	method configurarFlechasElectrocutado(visual){
-		keyboard.up().onPressDo{ self.mover(abajo,visual)}
-		keyboard.down().onPressDo{ self.mover(arriba,visual)}
-		keyboard.left().onPressDo{ self.mover(derecha,visual)}
-		keyboard.right().onPressDo{ self.mover(izquierda,visual)}
-   } 
-	
+	}
+}
+
+object electrocutado{	
+	method mover(direccion,personaje){
+	}
 }
 
 class VisualSolido inherits Visual{
@@ -60,27 +59,23 @@ class VisualSolido inherits Visual{
 	var property direccionRebote 
 	
 	method colisionadoPor(elemento) {
-		movimiento.mover(direccionRebote,elemento)
+		movimiento.estado().mover(direccionRebote,elemento)
 	}
 }		
 		
 //direcciones
 object izquierda { 
 	method siguiente(position) = position.left(1) 
-	method opuesto() = derecha 
 }
 
 object derecha { 
 	method siguiente(position) = position.right(1) 
-	method opuesto() = izquierda
 }
 
 object abajo { 
 	method siguiente(position) = position.down(1) 
-	method opuesto() = arriba
 }
 
 object arriba { 
 	method siguiente(position) = position.up(1) 
-	method opuesto() = abajo
 }
