@@ -68,6 +68,8 @@ object tiburon inherits Visual(image= "tiburon.png", position = new Position(x=9
 
 	method colisionadoPor(personaje) { 
 		nivel.ubicarAleatoriamente(self)
+		game.sound("comido.mp3").play()
+		
 		nivel.gameOver()
 	}	
 }
