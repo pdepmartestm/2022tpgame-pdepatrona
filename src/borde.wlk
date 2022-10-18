@@ -1,10 +1,9 @@
 import visuales.*
 import elementos.*
 import wollok.game.*
+import teclado.*
 
- 
-
-class MarcoSolido {
+class Borde {
 	const verticeInicial
 	const verticeFinal
 	const image
@@ -32,28 +31,6 @@ class MarcoSolido {
 	}
 }
 
-/*CONFIGURACION DE TECLADO*/
-object movimiento {
-	var property estado = normal
-	method configurarFlechas(visual){
-		keyboard.up().onPressDo{ estado.mover(arriba,visual)}
-		keyboard.down().onPressDo{ estado.mover(abajo,visual)}
-		keyboard.left().onPressDo{ estado.mover(izquierda,visual) sheldon.image("sheldonTrosco.png")} //Sheldon que mira a la izquierda
-		keyboard.right().onPressDo{ estado.mover(derecha,visual) sheldon.image("sheldon.png")}
-   }
-}
-
-object normal{	
-	method mover(direccion,personaje){
-		personaje.position(direccion.siguiente(personaje.position()))
-	}
-}
-
-object electrocutado{	
-	method mover(direccion,personaje){
-	}
-}
-
 class VisualSolido inherits Visual{
 	
 	var property direccionRebote 
@@ -61,21 +38,4 @@ class VisualSolido inherits Visual{
 	method colisionadoPor(elemento) {
 		movimiento.estado().mover(direccionRebote,elemento)
 	}
-}		
-		
-//direcciones
-object izquierda { 
-	method siguiente(position) = position.left(1) 
-}
-
-object derecha { 
-	method siguiente(position) = position.right(1) 
-}
-
-object abajo { 
-	method siguiente(position) = position.down(1) 
-}
-
-object arriba { 
-	method siguiente(position) = position.up(1) 
 }

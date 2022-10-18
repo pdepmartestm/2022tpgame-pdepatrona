@@ -1,7 +1,8 @@
 import wollok.game.*
 import visuales.*
-import factories.*
+import borde.*
 import elementos.*
+import teclado.*
 
 object nivel {
 	
@@ -24,24 +25,22 @@ object nivel {
 		game.clear()
  		game.addVisual(fondo)
 		
-  		//Visuales	
+  		//Sheldon	
 		game.addVisual(sheldon)
-		movimiento.configurarFlechas(sheldon)
+		movimiento.configurarFlechas(sheldon)		
+		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) self.puntosParaGanar()})
 		
-		new MarcoSolido(
-				verticeInicial= game.origin(),
-				verticeFinal = new Position(x=anchoTablero, y=altoTablero),
-				image = "burbuja.png").dibujar()	    
+		//Borde
+		new Borde(verticeInicial= game.origin(), verticeFinal = new Position(x=anchoTablero, y=altoTablero), image = "burbuja.png").dibujar()	    
 
+		//Tiburon
 		game.addVisual(tiburon)
 		game.onTick(300, "nadar", {tiburon.nadar(sheldon.position())}) //el tiburon persigue a sheldon
 		
-		//Colisiones		
-		game.whenCollideDo(sheldon, {elemento => elemento.colisionadoPor(sheldon) win.actualizarPuntos()})
-		
-		[globo,pez10,pez15,pez20,pez30, pulpo, abisal, medusa].forEach { x =>  
-			game.addVisual(x)
-			self.ubicarAleatoriamente(x)}
+		//Peces
+		[globo,pez10,pez15,pez20,pez30, pulpo, abisal, medusa].forEach { pez =>  
+			game.addVisual(pez)
+			self.ubicarAleatoriamente(pez)}
 	}
 		
 	method ubicarAleatoriamente(visual){
@@ -51,7 +50,13 @@ object nivel {
 		else
 			self.ubicarAleatoriamente(visual)			
 			
+	}
+		
+	method puntosParaGanar(){
+		if (sheldon.puntos() >= 150) {
+			self.hasGanado()
 		}
+	}
 		
 	method hasGanado(){
 		game.clear()
@@ -72,7 +77,7 @@ object nivel {
         
         sheldon.puntos(0)
         movimiento.estado(normal)
-        nivel.ubicarAleatoriamente(tiburon) //muevo el tiburon de lugar porque sino aparezco en la misma posicion y pierdo inmediatamente
+        self.ubicarAleatoriamente(tiburon) // muevo el tiburon de lugar porque sino aparezco en la misma posicion y pierdo inmediatamente
         
 		keyboard.r().onPressDo{self.configurate()}
 	}
