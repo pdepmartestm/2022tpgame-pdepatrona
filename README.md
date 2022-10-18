@@ -1,23 +1,17 @@
 # SHELDON EATS
 
 
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/juego.png)
+![](https://github.com/lpangaro/SheldonEats/blob/main/img/Captura%20de%20Pantalla%202022-10-18%20a%20la(s)%2018.11.00.png)
 
 # REGLAS
 ## Peces que Sheldon puede comer 
 ### 10 puntos:
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez10A.png)
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez10R.png)
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez10V.png)
 
 ### 15 puntos:
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez15N.png)
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez15C.png)
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez15A.png)
 
 ### 20 puntos:
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez20A.png)
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez20N.png)
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/pez20V.png)
 
 ### 30 puntos:
@@ -28,16 +22,15 @@
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/tinta.png)
 
 ## Tambien hay peces que Sheldon no puede comer y le restan puntos
-### -10 puntos:
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/globoV.png)
+### -20 puntos:
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/globoM.png)
-![](https://github.com/lpangaro/SheldonEats/blob/main/img/globoC.png)
 
 ### -15 puntos:
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/medusa.png)
 
-### El Pez Abisal resta 20 Puntos:
+### El Pez Abisal resta -35 Puntos:
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/abisal.png)
 
-### El juego se gana caundo se consiguen 150 puntos o se pierde cunado comes un tiburon
+### El juego se gana caundo se consiguen 150 puntos o se pierde cunado comes un tiburon 
 ![](https://github.com/lpangaro/SheldonEats/blob/main/img/tiburon.png)
+CUIDADO QUE EL TIBURON TE PERSIGUE
