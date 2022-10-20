@@ -43,8 +43,8 @@ class PecesEspeciales inherits Visual {
 object pulpo inherits PecesEspeciales(image= "pulpo.png",puntos=35) {
 	override method colisionadoPor(personaje){ 
 		super(personaje)
+ 		game.addVisual(tinta)
 		game.removeVisual(self)
- 		game.addVisual(tinta) 		 		
 	}
 }
 
